@@ -3,12 +3,13 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCmp8DxyNSbYX9N_jt9pUwqYY1qXPBFFJw",
-  authDomain: "e5-firebase.firebaseapp.com",
-  projectId: "e5-firebase",
-  storageBucket: "e5-firebase.appspot.com",
-  messagingSenderId: "397779353882",
-  appId: "1:397779353882:web:8ac8c65b4e153887df2ca3",
+  apiKey: "AIzaSyBvLAvz_B2QEwMtJMSXP7Vh7hEd3klrmSw",
+  authDomain: "navigatin-57612.firebaseapp.com",
+  projectId: "navigatin-57612",
+  storageBucket: "navigatin-57612.appspot.com",
+  messagingSenderId: "217303947610",
+  appId: "1:217303947610:web:ba08b7373d02ce0e48bb63",
+  measurementId: "G-40W572S0SD",
 };
 
 const app = firebase.initializeApp(firebaseConfig);

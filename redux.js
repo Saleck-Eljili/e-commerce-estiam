@@ -5,8 +5,10 @@ const cardSlice = createSlice({
   initialState: [],
   reducers: {
     addPro: (state, action) => {
-      // {type: "card/addPro", payload: text}
-      const newPro = {};
+      // {type: "card/addPro", payload: card}
+      const newPro = {
+        card: action.payload,
+      };
       state.push(newPro);
     },
   },

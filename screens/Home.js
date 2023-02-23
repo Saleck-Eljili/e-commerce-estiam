@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
   ScrollView,
@@ -18,6 +18,23 @@ import Products from "../utilities/database";
 export default function Home({ navigation }) {
   const [brand, setBrand] = useState("Nike"); // state to handle which brand's shoes are diplayed
 
+  const [pro, setPro] = useState([]);
+  const getProductsFromApi = () => {
+    return fetch(
+      "https://firebasestorage.googleapis.com/v0/b/revolution-drive.appspot.com/o/files%2FgXo5z1RzlDQ7E83ylmeSUc6Zfyf2%2Ftest%2FshoesDb.json?alt=media&token=97e156e8-465c-4e09-bd2d-d99a0f61887c"
+    )
+      .then((response) => response.json())
+      .then((pro) => {
+        setPro(pro.Products);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  useEffect(() => {
+    // Update the document title using the browser API
+    getProductsFromApi();
+  });
   return (
     <SafeAreaView style={styles.container}>
       {/* Homepage top-nav */}
@@ -106,7 +123,7 @@ export default function Home({ navigation }) {
         selectedBrand={brand}
         setSelectedBrand={setBrand}
         navigation={navigation}
-        products={Products}
+        products={pro}
       />
     </SafeAreaView>
   );
@@ -227,7 +244,29 @@ const ProductList = ({
                   }}
                 />
                 <Image
-                  source={product.images[0]}
+                  source={
+                    index == 0
+                      ? require("../assets/product-images/nike/air-zoom-pegasus-38/air-zoom-pegasus(1).png")
+                      : index == 1
+                      ? require("../assets/product-images/nike/air-jordan-retro-3/air-jordan-retro-3(1).png")
+                      : index == 2
+                      ? require("../assets/product-images/nike/lebron-witness-6/lebron-witness-6(1).png")
+                      : index == 3
+                      ? require("../assets/product-images/nike/air-max-97/air-max-97(1).png")
+                      : index == 4
+                      ? require("../assets/product-images/nike/air-force-1-mens/air-force-1-crater(1).png")
+                      : index == 5
+                      ? require("../assets/product-images/nike/air-max-95/air-max-95(1).png")
+                      : index == 6
+                      ? require("../assets/product-images/nike/air-max-270/air-max-270(1).png")
+                      : index == 7
+                      ? require("../assets/product-images/nike/free-metcon-4/free-metcon-4(1).png")
+                      : index == 8
+                      ? require("../assets/product-images/nike/jordan-delta-2-sp/jordan-delta-2-sp(1).png")
+                      : index == 9
+                      ? require("../assets/product-images/nike/air-monarch-iv/air-monarch-iv(1).png")
+                      : require("../assets/product-images/puma/rs-z/RS-Z(1).png")
+                  }
                   style={{ width: 160, height: 85, marginBottom: 15 }}
                 />
                 <View style={{ paddingLeft: 10 }}>

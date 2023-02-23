@@ -21,7 +21,7 @@ export default function Home({ navigation }) {
   const [pro, setPro] = useState([]);
   const getProductsFromApi = () => {
     return fetch(
-      "https://firebasestorage.googleapis.com/v0/b/revolution-drive.appspot.com/o/files%2FgXo5z1RzlDQ7E83ylmeSUc6Zfyf2%2Ftest%2FshoesDb.json?alt=media&token=97e156e8-465c-4e09-bd2d-d99a0f61887c"
+      "https://firebasestorage.googleapis.com/v0/b/revolution-drive.appspot.com/o/files%2FgXo5z1RzlDQ7E83ylmeSUc6Zfyf2%2Fimages%2FshoesDb.json?alt=media&token=fbf96b0a-3369-493d-909e-0ea41219ac51"
     )
       .then((response) => response.json())
       .then((pro) => {
@@ -244,29 +244,9 @@ const ProductList = ({
                   }}
                 />
                 <Image
-                  source={
-                    index == 0
-                      ? require("../assets/product-images/nike/air-zoom-pegasus-38/air-zoom-pegasus(1).png")
-                      : index == 1
-                      ? require("../assets/product-images/nike/air-jordan-retro-3/air-jordan-retro-3(1).png")
-                      : index == 2
-                      ? require("../assets/product-images/nike/lebron-witness-6/lebron-witness-6(1).png")
-                      : index == 3
-                      ? require("../assets/product-images/nike/air-max-97/air-max-97(1).png")
-                      : index == 4
-                      ? require("../assets/product-images/nike/air-force-1-mens/air-force-1-crater(1).png")
-                      : index == 5
-                      ? require("../assets/product-images/nike/air-max-95/air-max-95(1).png")
-                      : index == 6
-                      ? require("../assets/product-images/nike/air-max-270/air-max-270(1).png")
-                      : index == 7
-                      ? require("../assets/product-images/nike/free-metcon-4/free-metcon-4(1).png")
-                      : index == 8
-                      ? require("../assets/product-images/nike/jordan-delta-2-sp/jordan-delta-2-sp(1).png")
-                      : index == 9
-                      ? require("../assets/product-images/nike/air-monarch-iv/air-monarch-iv(1).png")
-                      : require("../assets/product-images/puma/rs-z/RS-Z(1).png")
-                  }
+                  source={{
+                    uri: product.images,
+                  }}
                   style={{ width: 160, height: 85, marginBottom: 15 }}
                 />
                 <View style={{ paddingLeft: 10 }}>
